@@ -1,0 +1,98 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-primary);
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 64px; /* Space for fixed nav */
+  background-color: var(--color-bg-dark);
+}
+
+.screen {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-text-secondary);
+  height: 100%;
+}
+
+/* Loading state */
+.app-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-bg-dark);
+  color: var(--color-accent-green);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-border-default);
+  border-top-color: var(--color-accent-green);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--space-md);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.app-loading p {
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: var(--space-lg);
+  letter-spacing: 2px;
+}
+
+/* Scrollbar customization */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-content::-webkit-scrollbar-track {
+  background: var(--color-bg-grid);
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+  border-radius: 2px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-hover);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    padding-bottom: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding-bottom: 56px;
+  }
+
+  .app-loading p {
+    font-size: 24px;
+  }
+}
